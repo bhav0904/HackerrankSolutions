@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/crush/problem
- * Generate a difference array, in which
+ * Generate a difference array, in which every element a[i] = k means that it is k greater than a[i-1]
  */
 public class ArrayManipulationOptimal {
 
