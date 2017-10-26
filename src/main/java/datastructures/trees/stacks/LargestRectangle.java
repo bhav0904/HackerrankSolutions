@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/largest-rectangle/problem
- * Brute force. Runtime: O(n^2)
+ * Brute force. Runtime: O(n^3)
  */
 public class LargestRectangle {
 
