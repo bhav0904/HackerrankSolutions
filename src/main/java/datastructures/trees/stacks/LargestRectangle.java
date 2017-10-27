@@ -4,16 +4,17 @@ import java.util.Scanner;
 
 /**
  * https://www.hackerrank.com/challenges/largest-rectangle/problem
- * Brute force. Runtime: O(n^3)
+ * Brute force. Runtime: O(n^2)
  */
 public class LargestRectangle {
 
     private static long largestRectangle(int[] h) {
         long maxArea = 0;
         for (int i = 0; i < h.length; i ++) {
+            int minHeight = h[i];
             for (int j=i; j < h.length; j++) {
                 int k = j - i + 1;
-                int minHeight = findMin(h, i, j);
+                minHeight = findMin(h, j, minHeight);
                 long area = k * minHeight;
 
                 if (area > maxArea) {
@@ -25,14 +26,11 @@ public class LargestRectangle {
         return maxArea;
     }
 
-    private static int findMin(int[] h, int start, int end) {
-        int min = Integer.MAX_VALUE;
-        for (int i = start; i <=end; i++) {
-            if (h[i] < min) {
-                min = h[i];
-            }
+    private static int findMin(int[] h, int end, int previousMin) {
+        if (h[end] < previousMin) {
+            return h[end];
         }
-        return min;
+        return previousMin;
     }
 
     public static void main(String[] args) {
